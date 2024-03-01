@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DALLibrary.Domain_Classes.Medicine>
+
+@{
+    ViewBag.Title = "MedicineList";
+    Layout = "~/Views/Shared/_Layout_Doctor.cshtml";
+}
+
+
+<script src="~/Content/SearchScript.js"></script>
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <label for="searchQuery">Search by Name:</label>
+        <input type="text" id="searchQuery" name="searchQuery" class="form-control form-control-sm ml-5 w-40" style="width:200px;" placeholder="Enter medicine name" />
+
+        <table class="table table-striped table-dark">
+            <thead >
+                <tr >
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Manufacture Date</th>
+                    <th scope="col">Expired Date</th>
+                    <th scope="col">Is Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var medicine in Model)
+                {
+                    <tr>
+                        <td>@medicine.MedicineName</td>
+                        <td>@medicine.Price</td>
+                        <td>@medicine.ManufactureDate.ToShortDateString()</td>
+                        <td>@medicine.ExpiredDate.ToShortDateString()</td>
+                        <td>@(medicine.IsAvailable ? "Yes" : "No")</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

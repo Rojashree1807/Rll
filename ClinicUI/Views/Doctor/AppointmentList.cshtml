@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DALLibrary.Domain_Classes.Appointment>
+
+@{
+    ViewBag.Title = "AppointmentList";
+    Layout = "~/Views/Shared/_Layout_Doctor.cshtml";
+}
+
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <div class="table-responsive">
+            <table class="table table-striped table-dark">
+                <thead >
+                    <tr>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Appointment Date</th>
+                        <th scope="col">Appointment Slot</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Patient.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.StartDateTime)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Doctor.Timings)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Details)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+</div>
+</div>

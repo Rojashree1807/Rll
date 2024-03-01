@@ -1,0 +1,56 @@
+﻿@model DALLibrary.Domain_Classes.Pharmacist
+@{
+    ViewBag.Title = "UpdatePharmacist";
+    Layout = "~/Views/Shared/_Layout_Manager_Pharmacist.cshtml";
+}
+
+<h2>UpdatePharmacist</h2>
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        @using (Html.BeginForm("UpdatePharmacist", "Manager", FormMethod.Post))
+        {
+            <div class="form-horizontal">
+                <div class="container">
+                    <div class="card appointment-form">
+                        <div class="card-body">
+                            <h4 class="card-title">Details</h4>
+                            @Html.HiddenFor(model => model.PharmacistId)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Name)
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email)
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password)
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-success" />
+                                    <a href="@Url.Action("DisplayPharmasicts", "Manager")" class="btn btn-secondary ml-2">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

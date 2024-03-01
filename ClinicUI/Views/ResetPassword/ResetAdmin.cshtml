@@ -1,0 +1,55 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@{
+    ViewBag.Title = "ResetAdmin";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="~/Content/ResetStyle.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/BackButtonDisable")
+</head>
+
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Reset Password</legend>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-outline mb-4">
+                <label for="email">Enter Email</label>
+                <input type="text" id="email" name="email" required />
+            </div>
+            <div class="form-outline mb-4">
+                <label for="pass1">Enter Password</label>
+                <div style="position: relative;">
+                    <input type="password" id="pass1" name="pass1" required />
+                    <i id="showPasswordIcon" class="show-password" style="position: absolute; right: 10px; top: 50%; cursor: pointer; transform: translateY(-50%);"></i>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <label for="pass2">Confirm Password</label>
+                <div style="position: relative;">
+                    <input type="password" id="pass2" name="pass2" required />
+                    <i id="showPasswordIcon1" class="show-password1" style="position: absolute; right: 10px; top: 50%; cursor: pointer; transform: translateY(-50%);"></i>
+                </div>
+            </div>
+
+            @using (Html.BeginForm("ResetAdmin", "RestPassword", FormMethod.Post))
+            {
+                @Html.MathCaptcha()<br /><br />
+                <button type="submit" class="btn btn-dark btn-lg btn-block" name="SId" value="@Session["SId"]">Reset</button>
+            }
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button style="margin-left:45px;" onclick="location.href='@Url.Action("Index", "Login")'" class="btn btn-dark btn-lg btn-block">Cancel</button>
+        </fieldset>
+    </form>
+
+
+
+
+</body>
+
+</html>
+

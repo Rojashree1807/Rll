@@ -1,0 +1,71 @@
+﻿
+@model DALLibrary.Domain_Classes.Patient
+@using CaptchaMvc.HtmlHelpers
+@{
+    ViewBag.Title = "AddPatient";
+    Layout = "~/Views/Shared/_Layout_Front_Officer.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research Application Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="~/Content/Register.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="">
+        @using (Html.BeginForm("AddPatient", "FrontOfficer", FormMethod.Post))
+        {
+
+            <div class="banner">
+                <h1>Patient Registration Form</h1>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Name Of Patient</p>
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Age</p>
+                @Html.TextBoxFor(model => model.age)
+                @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Phone<span class="required">*</span></p>
+                @Html.TextBoxFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Address<span class="required">*</span></p>
+                @Html.TextBoxFor(model => model.Address)
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="question">
+                <p>Gender<span class="required">*</span></p>
+                <div class="question-answer">
+                    @Html.TextBoxFor(model => model.Gender)
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="item">
+                <p>Email<span class="required">*</span></p>
+                @Html.TextBoxFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Password<span class="required">*</span></p>
+                @Html.TextBoxFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="btn-block">
+                @Html.MathCaptcha()<button type="submit" class="card-subtitle"> Register</button>
+            </div>
+        }
+
+</body>
+</html>
+

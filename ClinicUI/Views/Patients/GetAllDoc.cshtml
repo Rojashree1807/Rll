@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DALLibrary.Domain_Classes.Doctor>
+
+@{
+    ViewBag.Title = "GetAllDoc";
+    Layout = "~/Views/Shared/_Layout_Patient.cshtml";
+}
+
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Specilization
+                    </td>
+                    <td>
+                        Timings
+                    </td>
+
+                    <td>
+                        Book Appointment
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    <tr>
+                        <td>
+                            @d.DoctorName
+                        </td>
+                        <td>
+                            @d.Specialization
+                        </td>
+                        <td>
+                            @d.Timings
+                        </td>
+                        <td>
+                            <a href="@Url.Action("BookOp", "Patients", new { docId = d.DoctorId })" class="btn btn-primary" style="background-color: #007bff; color: #fff; border: 1px solid #007bff; text-decoration: none;">Book Appointment</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+

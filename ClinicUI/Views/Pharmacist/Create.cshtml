@@ -1,0 +1,71 @@
+﻿@model DALLibrary.Domain_Classes.Medicine
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout_Pharmacist.cshtml";
+}
+
+
+<script src="~/Content/SearchScript.js"></script>
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        @using (Html.BeginForm("Create", "Pharmacist", FormMethod.Post))
+        {
+            <div class="banner">
+                <h1>Add Medicines</h1>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Name Of Medicine</p>
+                @Html.TextBoxFor(model => model.MedicineName)
+                @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Price</p>
+                @Html.TextBoxFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Manufacture Date<span class="required">*</span></p>
+                <input type="date" @Html.TextBoxFor(model => model.ManufactureDate)
+                       @Html.ValidationMessageFor(model => model.ManufactureDate, "", new { @class = "text-danger" })
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="item">
+                <p>
+                    Expire Date<span class="required">*</span><br />
+                    <input type="date" @Html.TextBoxFor(model => model.ExpiredDate)
+                           @Html.ValidationMessageFor(model => model.ExpiredDate, "", new { @class = "text-danger" })
+                    <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h5>Discount</h5>
+            <div class="question">
+                <div class="question-answer">
+                    @Html.TextBoxFor(model => model.Discount)
+                    @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="item">
+                <p>Tax<span class="required">*</span></p>
+                @Html.TextBoxFor(model => model.Tax)
+                @Html.ValidationMessageFor(model => model.Tax, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <label asp-for="IsAvailable" class="control-label">In Stock</label>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-success">
+                        <input type="radio" asp-for="IsAvailable" value="true"> Available
+                    </label>
+                    <label class="btn btn-danger">
+                        <input type="radio" asp-for="IsAvailable" value="false"> Not Available
+                    </label>
+                </div>
+                </div>
+                <div class="btn-block">
+                    <button type="submit" class="card-subtitle"> Add Medicine</button>
+                </div>
+                }
+
+            </div>
+       
+    </div>

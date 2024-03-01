@@ -1,0 +1,26 @@
+﻿body {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#hero {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+#features {
+    padding: 80px 0;
+}
+
+.feature {
+    text-align: center;
+    margin-bottom: 30px;
+}

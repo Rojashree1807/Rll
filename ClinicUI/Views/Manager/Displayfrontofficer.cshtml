@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DALLibrary.Domain_Classes.Front_Officer>
+@{
+    ViewBag.Title = "Displayfrontofficer";
+    Layout = "~/Views/Shared/_Layout_Manager_Front_Officer.cshtml";
+}
+
+<h2>Displayfrontofficer</h2>
+<script src="~/Content/SearchScript.js"></script>
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Front_OfficerId Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+
+                    <th scope="col">Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.Front_OfficerId</td>
+                        <td>@p.Name</td>
+
+                        <td>@p.Email</td>
+                        <td>@p.Password</td>
+                        <td>
+                            <a href="@Url.Action("Updatefrontofficer", "Manager", new { id = p.Front_OfficerId})" class="btn btn-primary" style="background-color: #007bff; color: #fff; border: 1px solid #007bff; text-decoration: none;">Update</a>
+                            <a href="@Url.Action("Deletefrontofficer", "Manager", new { id = p.Front_OfficerId })" class="btn btn-primary" style="background-color: #007bff; color: #fff; border: 1px solid #007bff; text-decoration: none;">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

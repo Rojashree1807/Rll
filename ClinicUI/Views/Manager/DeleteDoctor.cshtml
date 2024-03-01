@@ -1,0 +1,44 @@
+﻿@model DALLibrary.Domain_Classes.Doctor
+@{
+    ViewBag.Title = "DeleteDoctor";
+    Layout = "~/Views/Shared/_Layout_Manager_Doc.cshtml";
+}
+
+
+<h2>DeleteDoctor</h2>
+<h2>DeletePatient</h2>
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayFor(model => model.DoctorName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DoctorName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            </dl>
+            @using (Html.BeginForm("DeleteDoctor", "Manager", FormMethod.Post))
+            {
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <a href="@Url.Action("DisplayDoctors", "Manager")" class="btn btn-secondary ml-2">Cancel</a>
+                </div>
+
+
+            }
+        </div>
+
+
+    </div>
+</div>
+
+

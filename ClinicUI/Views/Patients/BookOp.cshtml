@@ -1,0 +1,54 @@
+﻿@model DALLibrary.Domain_Classes.Appointment
+@{
+    ViewBag.Title = "BookOp";
+    Layout = "~/Views/Shared/_Layout_Patient.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research Application Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="~/Content/Register.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="testbox">
+        @using (Html.BeginForm("BookOp", "Patients", FormMethod.Post))
+        {
+            <div class="banner">
+                <h1>Patient Registration Form</h1>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Doctor Name</p>
+                @Html.EditorFor(model => @Session["DoctorName"], new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+            <div class="item">
+                <p>Specialization<span class="required">*</span></p>
+                @Html.EditorFor(model => @Session["Specialization"], new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+            <div class="item">
+                <p>Timing<span class="required">*</span></p>
+                @Html.EditorFor(model => @Session["Timings"], new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+            <div class="item">
+                <p>Date of Op<span class="required"></p>
+                <input type="date" @Html.TextBoxFor(model => model.StartDateTime)
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="item">
+                <p>Details<span class="required">*</span></p>
+                @Html.TextBoxFor(model => model.Details)
+            </div>
+            <div class="btn-block">
+                <input type="submit" value="Book Appointment" class="btn btn-success"   />
+
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+
+

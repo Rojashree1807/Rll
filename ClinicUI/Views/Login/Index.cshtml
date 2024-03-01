@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link href="~/Content/Home.css" rel="stylesheet" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Your Website</title>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="~/Scripts/images/hosipitalLogo.jpg" style="width:50px;" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-link">@Html.ActionLink("Patients", "PatientLogin", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-link">@Html.ActionLink("Doctor", "DoctorLogin", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-link">@Html.ActionLink("Front Office Executives", "FrontOfficeLogin", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-link">@Html.ActionLink("Pharmacists", "PharmacistsLogin", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-link">@Html.ActionLink("Manager", "AdminLogin", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Welcome to CarePlus</h1>
+            <p>Healing Together, Caring Forever: Your Health, Our Priority.</p>
+            <a:asp class="btn btn-light btn-lg">@Html.ActionLink("Get Your Op", "PatientLogin", "Login", new { area = "" }, new { @class = "nav-link" })</a:asp>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 feature">
+                    <h3><img src="~/Content/service.jpg" style="width:80px ;height:80px"/></h3>
+                    <p>
+                        We are here to serve you 24*7
+                    </p>
+                </div>
+                <div class="col-lg-4 feature">
+                    <h3><img src="~/Content/dh.jpg" style="width:80px ;height:80px"/></h3>
+                    <p>
+                        We collabrate for a better health care System in our society
+                    </p>
+                </div>
+                <div class="col-lg-4 feature">
+                    <h3><img src="~/Content/OIP.jpg" style="width:80px ;height:80px"/></h3>
+                    <p>
+                        A medical group dedicated for serving our community
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
+
+

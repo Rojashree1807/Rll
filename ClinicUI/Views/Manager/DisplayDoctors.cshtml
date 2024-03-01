@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DALLibrary.Domain_Classes.Doctor>
+@{
+    ViewBag.Title = "DisplayDoctors";
+    Layout = "~/Views/Shared/_Layout_Manager_Doc.cshtml";
+}
+
+
+
+<h2>DisplayDoctors</h2>
+<script src="~/Content/SearchScript.js"></script>
+<div style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Doctor Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Is Available</th>
+                    <th scope="col">Specialization</th>
+                    <th scope="col">Timings</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.DoctorName</td>
+                        <td>@p.Email</td>
+                        <td>@p.Password</td>
+                        <td>@p.Age</td>
+                        <td>@p.Phone</td>
+                        <td>@p.Address</td>
+                        <td>@p.IsAvailable</td>
+                        <td>@p.Specialization</td>
+                        <td>@p.Timings</td>
+                        <td>
+                            <a href="@Url.Action("UpdateDoctors", "Manager", new { id = p.DoctorId})" class="btn btn-primary" style="background-color: #007bff; color: #fff; border: 1px solid #007bff; text-decoration: none;">Update</a>
+                           <br /> <a href="@Url.Action("DeleteDoctors", "Manager", new { id = p.DoctorId })" class="btn btn-primary" style="background-color: #007bff; color: #fff; border: 1px solid #007bff; text-decoration: none;">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

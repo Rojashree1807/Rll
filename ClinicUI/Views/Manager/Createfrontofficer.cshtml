@@ -1,0 +1,45 @@
+﻿@model DALLibrary.Domain_Classes.Front_Officer
+@using CaptchaMvc.HtmlHelpers
+@{
+    ViewBag.Title = "Createfrontofficer";
+    Layout = "~/Views/Shared/_Layout_Manager_Front_Officer.cshtml";
+}
+
+<h2>Createfrontofficer</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="~/Content/Register.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="testbox">
+        @using (Html.BeginForm("Createfrontofficer", "Manager", FormMethod.Post))
+        {
+            <div class="banner">
+                <h1>Patient Registration Form</h1>
+            </div>
+            <div class="item">
+                <p>Name</p>
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Email<span class="required">*</span></p>
+                @Html.TextBoxFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="item">
+                <p>Password<span class="required">*</span></p>
+                @Html.TextBoxFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="btn-block">
+                @Html.MathCaptcha()<button type="submit" class="card-subtitle"> Add front officer </button>
+            </div>
+        }
+    </div>
+
+</body>
+</html>
